@@ -1,14 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Expense - Aakash Finance</title>
 <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
 <h1>💸 Expense</h1>
 
-<p>Expense Module Coming Soon</p>
+<h2>Add Expense</h2>
+
+<label>Expense Name</label><br>
+<input id="expenseName" type="text" placeholder="Food / Rent / Travel"><br><br>
+
+<label>Amount (₹)</label><br>
+<input id="expenseAmount" type="number" placeholder="Enter Amount"><br><br>
+
+<button>💾 Save Expense</button>
+
+<h2>Total Expense: ₹0</h2>
+
+<h3>Expense History</h3>
+<ul id="expenseList"></ul>
+
+<br>
 
 <button onclick="history.back()">⬅ Back to Dashboard</button>
 
