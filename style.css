@@ -56,3 +56,21 @@ button:hover{
     font-weight:bold;
     cursor:pointer;
 }
+body{
+    font-family: Arial, sans-serif;
+    max-width: 400px;
+    margin: auto;
+    padding: 20px;
+}
+
+input, button{
+    width: 100%;
+    padding: 12px;
+    margin-top: 10px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+}
+
+button{
+    cursor: pointer;
+}
