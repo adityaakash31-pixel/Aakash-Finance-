@@ -1,26 +1,47 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Aakash Finance</title>
-<link rel="stylesheet" href="style.css">
-</head>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,sans-serif;
+}
 
-<body>
+body{
+    background:linear-gradient(135deg,#0f172a,#1e3a8a);
+    color:white;
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+}
 
-<header>
-<h1>🕉️ Aakash Finance</h1>
-<p>Your Personal Finance Manager</p>
-</header>
+header{
+    width:100%;
+}
 
-<main>
+h1{
+    font-size:42px;
+    margin-bottom:15px;
+}
 
-<button onclick="startApp()">🚀 Get Started</button>
+p{
+    font-size:20px;
+    margin-bottom:30px;
+    opacity:.9;
+}
 
-</main>
+button{
+    background:#22c55e;
+    color:white;
+    border:none;
+    padding:15px 35px;
+    font-size:20px;
+    border-radius:12px;
+    cursor:pointer;
+    transition:.3s;
+}
 
-<script src="script.js"></script>
-
-</body>
-</html>
+button:hover{
+    background:#16a34a;
+    transform:scale(1.05);
+}
