@@ -1,3 +1,5 @@
 function startApp() {
-    alert("Welcome to Aakash Finance!");
+    alert("Welcome to Aakash Finance 🚀");
+
+    window.location.href = "dashboard.html";
 }
