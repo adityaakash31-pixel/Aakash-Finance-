@@ -1,3 +1,4 @@
+let totalIncome = 0;
 function startApp() {
     window.location.href = "dashboard.html";
 }
@@ -16,6 +17,8 @@ function saveIncome() {
     item.innerHTML = source + " - ₹" + amount;
 
     list.appendChild(item);
+    totalIncome += Number(amount);
+document.getElementById("totalIncome").innerText = totalIncome;
 
     document.getElementById("source").value = "";
     document.getElementById("amount").value = "";
