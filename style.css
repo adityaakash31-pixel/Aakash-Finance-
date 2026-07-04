@@ -45,3 +45,14 @@ button:hover{
     background:#16a34a;
     transform:scale(1.05);
 }
+.card{
+    background:white;
+    color:black;
+    margin:15px auto;
+    padding:20px;
+    width:300px;
+    border-radius:15px;
+    font-size:22px;
+    font-weight:bold;
+    cursor:pointer;
+}
