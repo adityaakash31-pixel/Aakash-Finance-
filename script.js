@@ -115,7 +115,7 @@ window.onload = function () {
     document.getElementById("dashboardLoan").innerText = loan;
         }
         document.getElementById("dashboardBalance").innerText =
-            income - expense - roomExpense;
+    income - expense - roomExpense - loan;
     }
 
     if (document.getElementById("totalIncome")) {
