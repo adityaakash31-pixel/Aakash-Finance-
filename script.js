@@ -1,83 +1,104 @@
-let totalIncome = 0;
+// ---------------- INCOME ----------------
 
-function startApp() {
-    window.location.href = "dashboard.html";
-}
+let totalIncome = Number(localStorage.getItem("totalIncome")) || 0;
 
 function saveIncome() {
-    let source = document.getElementById("source").value;
-    let amount = document.getElementById("amount").value;
 
-    if (source === "" || amount === "") {
+    let source = document.getElementById("source").value;
+    let amount = Number(document.getElementById("amount").value);
+
+    if (source === "" || amount <= 0) {
         alert("Please fill all fields");
         return;
     }
 
     let list = document.getElementById("incomeList");
 
-    let item = document.createElement("li");
-    item.innerHTML = source + " - ₹" + amount;
+    if (list) {
+        let item = document.createElement("li");
+        item.innerHTML = source + " - ₹" + amount;
+        list.appendChild(item);
+    }
 
-    list.appendChild(item);
-    localStorage.setItem("totalIncome", totalIncome + Number(amount));
+    totalIncome += amount;
 
-    totalIncome += Number(amount);
+    localStorage.setItem("totalIncome", totalIncome);
+
     document.getElementById("totalIncome").innerText = totalIncome;
 
     document.getElementById("source").value = "";
     document.getElementById("amount").value = "";
 }
-let totalExpense = 0;
+
+
+// ---------------- EXPENSE ----------------
+
+let totalExpense = Number(localStorage.getItem("totalExpense")) || 0;
 
 function saveExpense() {
-    let name = document.getElementById("expenseName").value;
-    let amount = document.getElementById("expenseAmount").value;
 
-    if (name === "" || amount === "") {
+    let name = document.getElementById("expenseName").value;
+    let amount = Number(document.getElementById("expenseAmount").value);
+
+    if (name === "" || amount <= 0) {
         alert("Please fill all fields");
         return;
     }
 
     let list = document.getElementById("expenseList");
 
-    let item = document.createElement("li");
-    item.innerHTML = name + " - ₹" + amount;
+    if (list) {
+        let item = document.createElement("li");
+        item.innerHTML = name + " - ₹" + amount;
+        list.appendChild(item);
+    }
 
-    list.appendChild(item);
-    localStorage.setItem("totalExpense", totalExpense + Number(amount));
+    totalExpense += amount;
 
-    totalExpense += Number(amount);
+    localStorage.setItem("totalExpense", totalExpense);
+
     document.getElementById("totalExpense").innerText = totalExpense;
 
     document.getElementById("expenseName").value = "";
     document.getElementById("expenseAmount").value = "";
 }
-let totalRoomExpense = 0;
+
+
+// ---------------- ROOM EXPENSE ----------------
+
+let totalRoomExpense = Number(localStorage.getItem("totalRoomExpense")) || 0;
 
 function saveRoomExpense() {
 
     let name = document.getElementById("roomName").value;
-    let amount = document.getElementById("roomAmount").value;
+    let amount = Number(document.getElementById("roomAmount").value);
 
-    if (name === "" || amount === "") {
+    if (name === "" || amount <= 0) {
         alert("Please fill all fields");
         return;
     }
 
     let list = document.getElementById("roomExpenseList");
 
-    let item = document.createElement("li");
-    item.innerHTML = name + " - ₹" + amount;
+    if (list) {
+        let item = document.createElement("li");
+        item.innerHTML = name + " - ₹" + amount;
+        list.appendChild(item);
+    }
 
-    list.appendChild(item);
-    localStorage.setItem("totalRoomExpense", totalRoomExpense + Number(amount));
+    totalRoomExpense += amount;
 
-    totalRoomExpense += Number(amount);
+    localStorage.setItem("totalRoomExpense", totalRoomExpense);
+
     document.getElementById("totalRoomExpense").innerText = totalRoomExpense;
 
     document.getElementById("roomName").value = "";
     document.getElementById("roomAmount").value = "";
 }
+
+
+// ---------------- DASHBOARD ----------------
+
 window.onload = function () {
 
     if (document.getElementById("dashboardIncome")) {
@@ -91,6 +112,18 @@ window.onload = function () {
         document.getElementById("dashboardRoomExpense").innerText = roomExpense;
         document.getElementById("dashboardBalance").innerText =
             income - expense - roomExpense;
+    }
+
+    if (document.getElementById("totalIncome")) {
+        document.getElementById("totalIncome").innerText = totalIncome;
+    }
+
+    if (document.getElementById("totalExpense")) {
+        document.getElementById("totalExpense").innerText = totalExpense;
+    }
+
+    if (document.getElementById("totalRoomExpense")) {
+        document.getElementById("totalRoomExpense").innerText = totalRoomExpense;
     }
 
 };
