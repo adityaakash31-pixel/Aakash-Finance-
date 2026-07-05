@@ -6,6 +6,7 @@ function saveIncome() {
 
     let source = document.getElementById("source").value;
     let amount = Number(document.getElementById("amount").value);
+    let date = document.getElementById("incomeDate").value;
 
     if (source === "" || amount <= 0) {
         alert("Please fill all fields");
@@ -16,7 +17,7 @@ function saveIncome() {
 
     if (list) {
         let item = document.createElement("li");
-        item.innerHTML = source + " - ₹" + amount;
+        item.innerHTML = source + " - ₹" + amount + " - 📅 " + date;
         list.appendChild(item);
     }
 
