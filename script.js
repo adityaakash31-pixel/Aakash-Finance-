@@ -186,3 +186,24 @@ function searchIncome() {
 
     }
 }
+function exportData() {
+
+    let data = {
+        income: localStorage.getItem("totalIncome"),
+        expense: localStorage.getItem("totalExpense"),
+        roomExpense: localStorage.getItem("totalRoomExpense"),
+        loan: localStorage.getItem("totalLoan")
+    };
+
+    let text = JSON.stringify(data, null, 2);
+
+    let blob = new Blob([text], { type: "application/json" });
+
+    let link = document.createElement("a");
+
+    link.href = URL.createObjectURL(blob);
+
+    link.download = "AakashFinanceBackup.json";
+
+    link.click();
+}
