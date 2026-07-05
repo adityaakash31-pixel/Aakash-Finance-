@@ -78,3 +78,19 @@ function saveRoomExpense() {
     document.getElementById("roomName").value = "";
     document.getElementById("roomAmount").value = "";
 }
+window.onload = function () {
+
+    if (document.getElementById("dashboardIncome")) {
+
+        let income = Number(localStorage.getItem("totalIncome")) || 0;
+        let expense = Number(localStorage.getItem("totalExpense")) || 0;
+        let roomExpense = Number(localStorage.getItem("totalRoomExpense")) || 0;
+
+        document.getElementById("dashboardIncome").innerText = income;
+        document.getElementById("dashboardExpense").innerText = expense;
+        document.getElementById("dashboardRoomExpense").innerText = roomExpense;
+        document.getElementById("dashboardBalance").innerText =
+            income - expense - roomExpense;
+    }
+
+};
