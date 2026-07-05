@@ -17,7 +17,9 @@ function saveIncome() {
 
     if (list) {
         let item = document.createElement("li");
-        item.innerHTML = source + " - ₹" + amount + " - 📅 " + date;
+        item.innerHTML =
+source + " - ₹" + amount + " - 📅 " + date +
+' <button onclick="this.parentElement.remove()">🗑 Delete</button>';
         list.appendChild(item);
     }
 
