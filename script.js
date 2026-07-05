@@ -16,8 +16,10 @@ function saveIncome() {
     let list = document.getElementById("incomeList");
 
     if (list) {
+       let incomeId = "INC" + Date.now();
         let item = document.createElement("li");
-        item.innerHTML =
+    item.innerHTML =
+incomeId + " | " +
 source + " - ₹" + amount + " - 📅 " + date +
 ' <button onclick="this.parentElement.remove()">🗑 Delete</button>';
         list.appendChild(item);
