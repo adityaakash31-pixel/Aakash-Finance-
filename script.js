@@ -111,6 +111,9 @@ window.onload = function () {
         document.getElementById("dashboardIncome").innerText = income;
         document.getElementById("dashboardExpense").innerText = expense;
         document.getElementById("dashboardRoomExpense").innerText = roomExpense;
+        if (document.getElementById("dashboardLoan")) {
+    document.getElementById("dashboardLoan").innerText = loan;
+        }
         document.getElementById("dashboardBalance").innerText =
             income - expense - roomExpense;
     }
