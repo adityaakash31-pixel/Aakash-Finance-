@@ -19,6 +19,7 @@ function saveIncome() {
     item.innerHTML = source + " - ₹" + amount;
 
     list.appendChild(item);
+    localStorage.setItem("totalIncome", totalIncome + Number(amount));
 
     totalIncome += Number(amount);
     document.getElementById("totalIncome").innerText = totalIncome;
@@ -43,6 +44,7 @@ function saveExpense() {
     item.innerHTML = name + " - ₹" + amount;
 
     list.appendChild(item);
+    localStorage.setItem("totalExpense", totalExpense + Number(amount));
 
     totalExpense += Number(amount);
     document.getElementById("totalExpense").innerText = totalExpense;
@@ -68,6 +70,7 @@ function saveRoomExpense() {
     item.innerHTML = name + " - ₹" + amount;
 
     list.appendChild(item);
+    localStorage.setItem("totalRoomExpense", totalRoomExpense + Number(amount));
 
     totalRoomExpense += Number(amount);
     document.getElementById("totalRoomExpense").innerText = totalRoomExpense;
