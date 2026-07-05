@@ -106,6 +106,7 @@ window.onload = function () {
         let income = Number(localStorage.getItem("totalIncome")) || 0;
         let expense = Number(localStorage.getItem("totalExpense")) || 0;
         let roomExpense = Number(localStorage.getItem("totalRoomExpense")) || 0;
+        let loan = Number(localStorage.getItem("totalLoan")) || 0;
 
         document.getElementById("dashboardIncome").innerText = income;
         document.getElementById("dashboardExpense").innerText = expense;
