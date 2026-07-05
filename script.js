@@ -26,3 +26,27 @@ function saveIncome() {
     document.getElementById("source").value = "";
     document.getElementById("amount").value = "";
 }
+let totalExpense = 0;
+
+function saveExpense() {
+    let name = document.getElementById("expenseName").value;
+    let amount = document.getElementById("expenseAmount").value;
+
+    if (name === "" || amount === "") {
+        alert("Please fill all fields");
+        return;
+    }
+
+    let list = document.getElementById("expenseList");
+
+    let item = document.createElement("li");
+    item.innerHTML = name + " - ₹" + amount;
+
+    list.appendChild(item);
+
+    totalExpense += Number(amount);
+    document.getElementById("totalExpense").innerText = totalExpense;
+
+    document.getElementById("expenseName").value = "";
+    document.getElementById("expenseAmount").value = "";
+}
