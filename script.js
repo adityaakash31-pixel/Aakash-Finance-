@@ -40,6 +40,7 @@ function saveExpense() {
 
     let name = document.getElementById("expenseName").value;
     let amount = Number(document.getElementById("expenseAmount").value);
+    let date = document.getElementById("expenseDate").value;
 
     if (name === "" || amount <= 0) {
         alert("Please fill all fields");
@@ -50,7 +51,7 @@ function saveExpense() {
 
     if (list) {
         let item = document.createElement("li");
-        item.innerHTML = name + " - ₹" + amount;
+        item.innerHTML = name + " - ₹" + amount + " - 📅 " + date;
         list.appendChild(item);
     }
 
