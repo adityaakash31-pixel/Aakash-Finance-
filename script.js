@@ -23,7 +23,6 @@ function saveIncome() {
     totalIncome += amount;
 
     localStorage.setItem("totalIncome", totalIncome);
-    alert(localStorage.getItem("totalIncome"));
 
     document.getElementById("totalIncome").innerText = totalIncome;
 
