@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Loan - Aakash Finance</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<h1>🤝 Loan Manager</h1>
+
+<h2>Add Loan</h2>
+
+<label>Person Name</label><br>
+<input id="loanPerson" type="text" placeholder="Enter Person Name"><br><br>
+
+<label>Loan Amount (₹)</label><br>
+<input id="loanAmount" type="number" placeholder="Enter Amount"><br><br>
+
+<button onclick="saveLoan()">💾 Save Loan</button>
+
+<h2>Total Loan: ₹<span id="totalLoan">0</span></h2>
+
+<h3>Loan History</h3>
+<ul id="loanList"></ul>
+
+<br>
+
+<button onclick="history.back()">⬅ Back to Dashboard</button>
+
+<script src="script.js"></script>
+
+</body>
+</html>
