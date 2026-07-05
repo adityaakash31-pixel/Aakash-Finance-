@@ -128,3 +128,33 @@ window.onload = function () {
     }
 
 };
+// ---------------- LOAN ----------------
+
+let totalLoan = Number(localStorage.getItem("totalLoan")) || 0;
+
+function saveLoan() {
+
+    let person = document.getElementById("loanPerson").value;
+    let amount = Number(document.getElementById("loanAmount").value);
+
+    if (person === "" || amount <= 0) {
+        alert("Please fill all fields");
+        return;
+    }
+
+    let list = document.getElementById("loanList");
+
+    let item = document.createElement("li");
+    item.innerHTML = person + " - ₹" + amount;
+
+    list.appendChild(item);
+
+    totalLoan += amount;
+
+    localStorage.setItem("totalLoan", totalLoan);
+
+    document.getElementById("totalLoan").innerText = totalLoan;
+
+    document.getElementById("loanPerson").value = "";
+    document.getElementById("loanAmount").value = "";
+}
