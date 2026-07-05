@@ -207,3 +207,19 @@ function exportData() {
 
     link.click();
 }
+// ---------------- REPORT ----------------
+
+if (document.getElementById("reportIncome")) {
+
+    let income = Number(localStorage.getItem("totalIncome")) || 0;
+    let expense = Number(localStorage.getItem("totalExpense")) || 0;
+    let roomExpense = Number(localStorage.getItem("totalRoomExpense")) || 0;
+    let loan = Number(localStorage.getItem("totalLoan")) || 0;
+
+    document.getElementById("reportIncome").innerText = income;
+    document.getElementById("reportExpense").innerText = expense;
+    document.getElementById("reportRoomExpense").innerText = roomExpense;
+    document.getElementById("reportLoan").innerText = loan;
+    document.getElementById("reportBalance").innerText =
+        income - expense - roomExpense - loan;
+}
