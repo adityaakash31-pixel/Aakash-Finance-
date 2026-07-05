@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Room Expense</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<h1>🏠 Room Expense</h1>
+
+<h2>Add Room Expense</h2>
+
+<label>Expense Name</label>
+<input id="roomName" type="text" placeholder="Rent / Electricity / WiFi">
+
+<label>Amount (₹)</label>
+<input id="roomAmount" type="number" placeholder="Enter Amount">
+
+<button onclick="saveRoomExpense()">💾 Save Room Expense</button>
+
+<h2>Total Room Expense: ₹<span id="totalRoomExpense">0</span></h2>
+
+<h3>Room Expense History</h3>
+<ul id="roomExpenseList"></ul>
+
+<br>
+
+<button onclick="history.back()">⬅ Back to Dashboard</button>
+
+<script src="script.js"></script>
+
+</body>
+</html>
