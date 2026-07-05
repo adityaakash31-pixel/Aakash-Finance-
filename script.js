@@ -50,3 +50,28 @@ function saveExpense() {
     document.getElementById("expenseName").value = "";
     document.getElementById("expenseAmount").value = "";
 }
+let totalRoomExpense = 0;
+
+function saveRoomExpense() {
+
+    let name = document.getElementById("roomName").value;
+    let amount = document.getElementById("roomAmount").value;
+
+    if (name === "" || amount === "") {
+        alert("Please fill all fields");
+        return;
+    }
+
+    let list = document.getElementById("roomExpenseList");
+
+    let item = document.createElement("li");
+    item.innerHTML = name + " - ₹" + amount;
+
+    list.appendChild(item);
+
+    totalRoomExpense += Number(amount);
+    document.getElementById("totalRoomExpense").innerText = totalRoomExpense;
+
+    document.getElementById("roomName").value = "";
+    document.getElementById("roomAmount").value = "";
+}
