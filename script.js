@@ -74,6 +74,7 @@ function saveRoomExpense() {
 
     let name = document.getElementById("roomName").value;
     let amount = Number(document.getElementById("roomAmount").value);
+    let date = document.getElementById("roomDate").value;
 
     if (name === "" || amount <= 0) {
         alert("Please fill all fields");
@@ -84,7 +85,7 @@ function saveRoomExpense() {
 
     if (list) {
         let item = document.createElement("li");
-        item.innerHTML = name + " - ₹" + amount;
+        item.innerHTML = name + " - ₹" + amount + " - 📅 " + date;
         list.appendChild(item);
     }
 
