@@ -522,3 +522,18 @@ function deleteLoan(button, amount) {
     }
 
 }
+function resetData() {
+
+    let ok = confirm("क्या आप सच में पूरा Finance Data Delete करना चाहते हैं?");
+
+    if (!ok) {
+        return;
+    }
+
+    localStorage.clear();
+
+    alert("✅ सभी डेटा Delete हो गया।");
+
+    window.location.href = "dashboard.html";
+
+}
