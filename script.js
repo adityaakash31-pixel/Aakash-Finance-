@@ -421,5 +421,14 @@ function deleteIncome(button, amount) {
     if (document.getElementById("totalIncome")) {
         document.getElementById("totalIncome").innerText = totalIncome;
     }
+if (document.getElementById("dashboardIncome")) {
 
+    document.getElementById("dashboardIncome").innerText = totalIncome;
+
+    let expense = Number(localStorage.getItem("totalExpense")) || 0;
+    let roomExpense = Number(localStorage.getItem("totalRoomExpense")) || 0;
+    let loan = Number(localStorage.getItem("totalLoan")) || 0;
+
+    document.getElementById("dashboardBalance").innerText =
+        totalIncome - expense - roomExpense - loan;
 }
