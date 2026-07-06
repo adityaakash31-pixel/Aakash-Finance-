@@ -321,3 +321,31 @@ function editIncome(button) {
 function searchHistory() {
     alert("History Search feature is under development.");
 }
+
+...
+function searchHistory() {
+    alert("History Search feature is under development.");
+}
+
+// ---------------- HISTORY PAGE ----------------
+
+if (document.getElementById("historyIncome")) {
+
+    let incomeList = JSON.parse(localStorage.getItem("incomeHistory")) || [];
+    let ul = document.getElementById("historyIncome");
+
+    incomeList.forEach(function(item) {
+
+        let li = document.createElement("li");
+
+        li.innerHTML =
+            item.id + " | " +
+            item.source + " - ₹" +
+            item.amount + " - 📅 " +
+            item.date;
+
+        ul.appendChild(li);
+
+    });
+
+}
