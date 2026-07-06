@@ -209,8 +209,6 @@ function exportData() {
 }
 // ---------------- REPORT ----------------
 
-// ---------------- REPORT ----------------
-
 if (document.getElementById("reportIncome")) {
 
     let income = Number(localStorage.getItem("totalIncome")) || 0;
