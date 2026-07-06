@@ -161,3 +161,58 @@ body.dark p,
 body.dark label {
     color: white;
 }
+.dashboard-grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:12px;
+margin-top:15px;
+}
+
+.action-grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:12px;
+margin-top:15px;
+}
+
+.big-card{
+background:linear-gradient(135deg,#2563eb,#1d4ed8);
+color:white;
+border-radius:20px;
+padding:20px;
+text-align:center;
+box-shadow:0 10px 25px rgba(37,99,235,.35);
+}
+
+.big-card h1{
+color:white;
+font-size:32px;
+margin-top:10px;
+}
+
+.action-card{
+background:white;
+padding:18px;
+border-radius:18px;
+text-align:center;
+font-size:18px;
+font-weight:bold;
+cursor:pointer;
+box-shadow:0 5px 15px rgba(0,0,0,.08);
+transition:.3s;
+}
+
+.action-card:hover{
+transform:scale(1.04);
+}
+
+@media(max-width:700px){
+
+.dashboard-grid,
+.action-grid{
+
+grid-template-columns:1fr;
+
+}
+
+}
