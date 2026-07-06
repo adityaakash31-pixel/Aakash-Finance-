@@ -246,3 +246,31 @@ function filterReport() {
     alert("Selected Month: " + month);
 
 }
+function editIncome(button) {
+
+    let li = button.parentElement;
+
+    let newAmount = prompt("Enter new Amount:");
+
+    if (newAmount === null || newAmount === "" || isNaN(newAmount)) {
+        return;
+    }
+
+    let text = li.innerText;
+
+    let parts = text.split(" - ₹");
+
+    let firstPart = parts[0];
+
+    let datePart = "";
+
+    if (parts[1].includes(" - 📅 ")) {
+        datePart = parts[1].split(" - 📅 ")[1];
+    }
+
+    li.innerHTML =
+        firstPart + " - ₹" + newAmount + " - 📅 " + datePart +
+        ' <button onclick="this.parentElement.remove()">🗑 Delete</button>' +
+        ' <button onclick="editIncome(this)">✏️ Edit</button>';
+
+}
