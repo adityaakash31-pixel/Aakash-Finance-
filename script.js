@@ -2,6 +2,8 @@
 
 let totalIncome = Number(localStorage.getItem("totalIncome")) || 0;
 
+let incomeHistory = JSON.parse(localStorage.getItem("incomeHistory")) || [];
+
 function saveIncome() {
 
     let source = document.getElementById("source").value;
@@ -24,6 +26,14 @@ source + " - ₹" + amount + " - 📅 " + date +
 ' <button onclick="this.parentElement.remove()">🗑 Delete</button>' +
 ' <button onclick="editIncome(this)">✏️ Edit</button>';
         list.appendChild(item);
+        incomeHistory.push({
+    id: incomeId,
+    source: source,
+    amount: amount,
+    date: date
+});
+
+localStorage.setItem("incomeHistory", JSON.stringify(incomeHistory));
     }
 
     totalIncome += amount;
