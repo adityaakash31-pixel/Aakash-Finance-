@@ -123,15 +123,6 @@ window.onload = function () {
         }
         document.getElementById("dashboardBalance").innerText =
     income - expense - roomExpense - loan;
-        new Chart(document.getElementById("financeChart"), {
-    type: "pie",
-    data: {
-        labels: ["Income", "Expense", "Room Expense", "Loan"],
-        datasets: [{
-            data: [income, expense, roomExpense, loan]
-        }]
-    }
-});
     }
 
     if (document.getElementById("totalIncome")) {
@@ -218,6 +209,8 @@ function exportData() {
 }
 // ---------------- REPORT ----------------
 
+// ---------------- REPORT ----------------
+
 if (document.getElementById("reportIncome")) {
 
     let income = Number(localStorage.getItem("totalIncome")) || 0;
@@ -231,4 +224,14 @@ if (document.getElementById("reportIncome")) {
     document.getElementById("reportLoan").innerText = loan;
     document.getElementById("reportBalance").innerText =
         income - expense - roomExpense - loan;
+
+    new Chart(document.getElementById("financeChart"), {
+        type: "pie",
+        data: {
+            labels: ["Income", "Expense", "Room Expense", "Loan"],
+            datasets: [{
+                data: [income, expense, roomExpense, loan]
+            }]
+        }
+    });
 }
