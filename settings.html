@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,14 +12,20 @@
 <h1>⚙️ Settings</h1>
 
 <div class="card">
-<button onclick="localStorage.clear()">
-🗑 Clear All Data
-</button>
+    <h3>🗑 Clear All Finance Data</h3>
+
+    <button onclick="resetData()">
+        Delete All Data
+    </button>
 </div>
 
 <br>
 
-<button onclick="history.back()">⬅ Back</button>
+<div class="card">
+    <button onclick="history.back()">
+        ⬅ Back
+    </button>
+</div>
 
 <script src="script.js"></script>
 
