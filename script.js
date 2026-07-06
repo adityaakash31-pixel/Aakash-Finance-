@@ -533,3 +533,15 @@ function resetData() {
     window.location.href = "dashboard.html";
 
 }
+function resetData() {
+
+    if (!confirm("Are you sure you want to delete all data?")) {
+        return;
+    }
+
+    localStorage.clear();
+
+    alert("All Finance Data Deleted Successfully!");
+
+    window.location.href = "dashboard.html";
+}
