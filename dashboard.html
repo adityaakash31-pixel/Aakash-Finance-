@@ -1,82 +1,96 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Aakash Finance Dashboard</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aakash Finance</title>
+
+<link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
 <h1>🏦 Aakash Finance</h1>
-<p>Welcome to your Dashboard</p>
-  <button onclick="location.reload()">🔄 Refresh Dashboard</button>
+<p>Manage Money • Grow Wealth</p>
 
 <div class="card">
-  <h3>💰 Total Income</h3>
-  <h2>₹<span id="dashboardIncome">0</span></h2>
+<h2>💰 Total Income</h2>
+<h1>₹<span id="dashboardIncome">0</span></h1>
 </div>
 
 <div class="card">
-  <h3>💸 Total Expense</h3>
-  <h2>₹<span id="dashboardExpense">0</span></h2>
+<h2>💸 Total Expense</h2>
+<h1>₹<span id="dashboardExpense">0</span></h1>
 </div>
 
 <div class="card">
-  <h3>🏠 Room Expense</h3>
-  <h2>₹<span id="dashboardRoomExpense">0</span></h2>
+<h2>🤝 Total Loan</h2>
+<h1>₹<span id="dashboardLoan">0</span></h1>
 </div>
 
-  <div class="card">
-  <h3>🤝 Total Loan</h3>
-  <h2>₹<span id="dashboardLoan">0</span></h2>
-  </div>
-  
 <div class="card">
-  <h3>💵 Balance</h3>
-  <h2>₹<span id="dashboardBalance">0</span></h2>
+<h2>💵 Available Balance</h2>
+<h1>₹<span id="dashboardBalance">0</span></h1>
 </div>
+
+<h2>⚡ Quick Actions</h2>
 
 <div class="card" onclick="window.location.href='income.html'">
-  💰 Income
+➕ Add Income
 </div>
 
 <div class="card" onclick="window.location.href='expense.html'">
-  💸 Expense
+➖ Add Expense
 </div>
 
 <div class="card" onclick="window.location.href='room-expense.html'">
-  🏠 Room Expense
+🏠 Room Expense
 </div>
 
 <div class="card" onclick="window.location.href='loan.html'">
-  🤝 Loan
+🤝 Loan
 </div>
 
 <div class="card" onclick="window.location.href='report.html'">
-  📊 Reports
+📊 Reports
 </div>
 
-  <div class="card" onclick="window.location.href='history.html'">
-  📄 History
-  </div>
+<div class="card" onclick="window.location.href='history.html'">
+📄 History
+</div>
 
 <div class="card" onclick="window.location.href='settings.html'">
-  ⚙️ Settings
+⚙️ Settings
 </div>
 
-  <div class="card" onclick="exportData()">
-    📤 Export Data
-  </div>
+<div class="card" onclick="exportData()">
+📤 Backup Data
+</div>
 
-  <hr>
+<hr>
 
 <div class="card">
-<h3>🚀 Aakash Finance v2.0</h3>
-<p>Professional Finance Manager</p>
+
+<h3>📈 Monthly Overview</h3>
+
+<p>
+Income, Expense, Loan और Balance
+का Summary यहाँ दिखाई देगा।
+</p>
+
 </div>
 
-  <script src="script.js"></script>
+<div class="card">
+
+<h3>🚀 Version 3.0</h3>
+
+<p>
+Made with ❤️ by Aditya Aakash
+</p>
+
+</div>
+
+<script src="script.js"></script>
 
 </body>
 </html>
