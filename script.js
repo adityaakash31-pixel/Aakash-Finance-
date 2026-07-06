@@ -349,3 +349,23 @@ if (document.getElementById("historyIncome")) {
     });
 
 }
+
+if (document.getElementById("historyExpense")) {
+
+    let expenseList = JSON.parse(localStorage.getItem("expenseHistory")) || [];
+    let ul = document.getElementById("historyExpense");
+
+    expenseList.forEach(function(item) {
+
+        let li = document.createElement("li");
+
+        li.innerHTML =
+            item.name + " - ₹" +
+            item.amount + " - 📅 " +
+            item.date;
+
+        ul.appendChild(li);
+
+    });
+
+}
