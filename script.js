@@ -322,7 +322,6 @@ function searchHistory() {
     alert("History Search feature is under development.");
 }
 
-...
 function searchHistory() {
     alert("History Search feature is under development.");
 }
