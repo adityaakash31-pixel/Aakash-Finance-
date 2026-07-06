@@ -369,3 +369,41 @@ if (document.getElementById("historyExpense")) {
     });
 
 }
+if (document.getElementById("historyRoom")) {
+
+    let roomList = JSON.parse(localStorage.getItem("roomExpenseHistory")) || [];
+    let ul = document.getElementById("historyRoom");
+
+    roomList.forEach(function(item) {
+
+        let li = document.createElement("li");
+
+        li.innerHTML =
+            item.name + " - ₹" +
+            item.amount + " - 📅 " +
+            item.date;
+
+        ul.appendChild(li);
+
+    });
+
+}
+if (document.getElementById("historyLoan")) {
+
+    let loanList = JSON.parse(localStorage.getItem("loanHistory")) || [];
+    let ul = document.getElementById("historyLoan");
+
+    loanList.forEach(function(item) {
+
+        let li = document.createElement("li");
+
+        li.innerHTML =
+            item.person + " - ₹" +
+            item.amount + " - 📅 " +
+            item.date;
+
+        ul.appendChild(li);
+
+    });
+
+}
