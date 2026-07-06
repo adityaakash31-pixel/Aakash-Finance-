@@ -413,6 +413,12 @@ function deleteIncome(button, amount) {
     }
 
     button.parentElement.remove();
+    let liText = button.parentElement.innerText;
+let incomeId = liText.split(" | ")[0];
+
+incomeHistory = incomeHistory.filter(item => item.id !== incomeId);
+
+localStorage.setItem("incomeHistory", JSON.stringify(incomeHistory));
 
     totalIncome = totalIncome - Number(amount);
 
