@@ -318,3 +318,6 @@ function editIncome(button) {
         ' <button onclick="editIncome(this)">✏️ Edit</button>';
 
 }
+function searchHistory() {
+    alert("History Search feature is under development.");
+}
