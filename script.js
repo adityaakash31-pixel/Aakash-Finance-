@@ -233,3 +233,15 @@ if (document.getElementById("reportIncome")) {
         }
     });
 }
+function filterReport() {
+
+    let month = document.getElementById("reportMonth").value;
+
+    if (month === "") {
+        alert("Please select a month");
+        return;
+    }
+
+    alert("Selected Month: " + month);
+
+}
