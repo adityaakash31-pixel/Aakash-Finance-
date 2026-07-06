@@ -123,6 +123,15 @@ window.onload = function () {
         }
         document.getElementById("dashboardBalance").innerText =
     income - expense - roomExpense - loan;
+        new Chart(document.getElementById("financeChart"), {
+    type: "pie",
+    data: {
+        labels: ["Income", "Expense", "Room Expense", "Loan"],
+        datasets: [{
+            data: [income, expense, roomExpense, loan]
+        }]
+    }
+});
     }
 
     if (document.getElementById("totalIncome")) {
