@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Transaction History</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<h1>📄 Transaction History</h1>
+
+<input
+type="text"
+id="historySearch"
+placeholder="Search..."
+onkeyup="searchHistory()">
+
+<br><br>
+
+<h2>💰 Income</h2>
+<ul id="historyIncome"></ul>
+
+<h2>💸 Expense</h2>
+<ul id="historyExpense"></ul>
+
+<h2>🏠 Room Expense</h2>
+<ul id="historyRoom"></ul>
+
+<h2>🤝 Loan</h2>
+<ul id="historyLoan"></ul>
+
+<button onclick="history.back()">⬅ Back</button>
+
+<script src="script.js"></script>
+
+</body>
+</html>
