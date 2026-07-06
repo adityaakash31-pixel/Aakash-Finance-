@@ -328,10 +328,6 @@ function searchHistory() {
     alert("History Search feature is under development.");
 }
 
-function searchHistory() {
-    alert("History Search feature is under development.");
-}
-
 // ---------------- HISTORY PAGE ----------------
 
 if (document.getElementById("historyIncome")) {
