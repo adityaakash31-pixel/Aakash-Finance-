@@ -68,7 +68,9 @@ function saveExpense() {
 
     if (list) {
         let item = document.createElement("li");
-        item.innerHTML = name + " - ₹" + amount + " - 📅 " + date;
+        item.innerHTML =
+name + " - ₹" + amount + " - 📅 " + date +
+' <button onclick="deleteExpense(this,' + amount + ')">🗑 Delete</button>';
         list.appendChild(item);
         expenseHistory.push({
     name: name,
@@ -438,6 +440,23 @@ localStorage.setItem("incomeHistory", JSON.stringify(incomeHistory));
 
         document.getElementById("dashboardBalance").innerText =
             totalIncome - expense - roomExpense - loan;
+    }
+
+}
+function deleteExpense(button, amount) {
+
+    if (!confirm("Delete this expense?")) {
+        return;
+    }
+
+    button.parentElement.remove();
+
+    totalExpense = totalExpense - Number(amount);
+
+    localStorage.setItem("totalExpense", totalExpense);
+
+    if (document.getElementById("totalExpense")) {
+        document.getElementById("totalExpense").innerText = totalExpense;
     }
 
 }
