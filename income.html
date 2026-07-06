@@ -10,33 +10,93 @@
 <body>
 
 <h1>💰 Income</h1>
+<p>Add your income easily</p>
 
-<h2>Add Income</h2>
+<div class="card">
 
-<label>Income Source</label><br>
-<input id="source" type="text" placeholder="Salary / Bonus / Business"><br><br>
+<h2>➕ Add Income</h2>
 
-<label>Amount (₹)</label><br>
-  <label>Date</label><br>
-<input id="incomeDate" type="date"><br><br>
-<input id="amount" type="number" placeholder="Enter Amount"><br><br>
+<label>Income Category</label>
 
-<button onclick="saveIncome()">💾 Save Income</button>
+<select id="source">
 
-<h2>Total Income: ₹<span id="totalIncome">0</span></h2>
+<option value="">Select Category</option>
+
+<option>💼 Salary</option>
+
+<option>👨‍🏫 Teaching</option>
+
+<option>🎁 Bonus</option>
+
+<option>📚 Copy Checking</option>
+
+<option>💻 Freelancing</option>
+
+<option>💰 Business</option>
+
+<option>🪙 Investment</option>
+
+<option>🎯 Other</option>
+
+</select>
+
+<br><br>
+
+<label>Amount (₹)</label>
 
 <input
-  type="text"
-  id="searchIncome"
-  placeholder="🔍 Search Income..."
-  onkeyup="searchIncome()">
-<br><br>
-  <h3>Income History</h3>
+id="amount"
+type="number"
+placeholder="Enter Amount">
+
+<label>Date</label>
+
+<input
+id="incomeDate"
+type="date">
+
+<button onclick="saveIncome()">
+💾 Save Income
+</button>
+
+</div>
+
+<div class="big-card">
+
+<h2>Total Income</h2>
+
+<h1>
+₹<span id="totalIncome">0</span>
+</h1>
+
+</div>
+
+<div class="card">
+
+<h2>🔍 Search Income</h2>
+
+<input
+type="text"
+id="searchIncome"
+placeholder="Search..."
+onkeyup="searchIncome()">
+
+</div>
+
+<div class="card">
+
+<h2>📜 Income History</h2>
+
 <ul id="incomeList"></ul>
 
-<br>
+</div>
 
-<button onclick="history.back()">⬅ Back to Dashboard</button>
+<div class="action-card"
+onclick="history.back()">
+
+⬅ Back Dashboard
+
+</div>
 
 <script src="script.js"></script>
 
