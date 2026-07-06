@@ -602,3 +602,33 @@ function toggleDarkMode() {
     }
 
 }
+function downloadPDF() {
+
+    const { jsPDF } = window.jspdf;
+
+    const doc = new jsPDF();
+
+    let income = localStorage.getItem("totalIncome") || 0;
+    let expense = localStorage.getItem("totalExpense") || 0;
+    let room = localStorage.getItem("totalRoomExpense") || 0;
+    let loan = localStorage.getItem("totalLoan") || 0;
+
+    let balance =
+        Number(income) -
+        Number(expense) -
+        Number(room) -
+        Number(loan);
+
+    doc.setFontSize(20);
+    doc.text("Aakash Finance Report", 20, 20);
+
+    doc.setFontSize(14);
+    doc.text("Total Income : Rs " + income, 20, 40);
+    doc.text("Total Expense : Rs " + expense, 20, 55);
+    doc.text("Room Expense : Rs " + room, 20, 70);
+    doc.text("Loan : Rs " + loan, 20, 85);
+    doc.text("Balance : Rs " + balance, 20, 100);
+
+    doc.save("AakashFinanceReport.pdf");
+
+}
