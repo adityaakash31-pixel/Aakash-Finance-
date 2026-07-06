@@ -450,6 +450,13 @@ function deleteExpense(button, amount) {
     }
 
     button.parentElement.remove();
+    let liText = button.parentElement.innerText;
+
+expenseHistory = expenseHistory.filter(item => {
+    return !liText.includes(item.name) || !liText.includes("₹" + item.amount);
+});
+
+localStorage.setItem("expenseHistory", JSON.stringify(expenseHistory));
 
     totalExpense = totalExpense - Number(amount);
 
