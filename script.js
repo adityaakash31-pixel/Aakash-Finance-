@@ -21,7 +21,8 @@ function saveIncome() {
     item.innerHTML =
 incomeId + " | " +
 source + " - ₹" + amount + " - 📅 " + date +
-' <button onclick="this.parentElement.remove()">🗑 Delete</button>';
+' <button onclick="this.parentElement.remove()">🗑 Delete</button>' +
+' <button onclick="editIncome(this)">✏️ Edit</button>';
         list.appendChild(item);
     }
 
