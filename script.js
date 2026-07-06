@@ -144,6 +144,10 @@ localStorage.setItem(
 
 window.onload = function () {
 
+    if (localStorage.getItem("theme") === "dark") {
+    document.body.classList.add("dark");
+    }
+
     if (document.getElementById("dashboardIncome")) {
 
         let income = Number(localStorage.getItem("totalIncome")) || 0;
