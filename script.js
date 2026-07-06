@@ -23,7 +23,7 @@ function saveIncome() {
     item.innerHTML =
 incomeId + " | " +
 source + " - ₹" + amount + " - 📅 " + date +
-' <button onclick="this.parentElement.remove()">🗑 Delete</button>' +
+' <button onclick="deleteIncome(this,' + amount + ')">🗑 Delete</button>' +
 ' <button onclick="editIncome(this)">✏️ Edit</button>';
         list.appendChild(item);
         incomeHistory.push({
@@ -404,5 +404,22 @@ if (document.getElementById("historyLoan")) {
         ul.appendChild(li);
 
     });
+
+}
+function deleteIncome(button, amount) {
+
+    if (!confirm("Delete this income?")) {
+        return;
+    }
+
+    button.parentElement.remove();
+
+    totalIncome = totalIncome - Number(amount);
+
+    localStorage.setItem("totalIncome", totalIncome);
+
+    if (document.getElementById("totalIncome")) {
+        document.getElementById("totalIncome").innerText = totalIncome;
+    }
 
 }
