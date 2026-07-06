@@ -51,6 +51,8 @@ localStorage.setItem("incomeHistory", JSON.stringify(incomeHistory));
 
 let totalExpense = Number(localStorage.getItem("totalExpense")) || 0;
 
+let expenseHistory = JSON.parse(localStorage.getItem("expenseHistory")) || [];
+
 function saveExpense() {
 
     let name = document.getElementById("expenseName").value;
@@ -68,6 +70,13 @@ function saveExpense() {
         let item = document.createElement("li");
         item.innerHTML = name + " - ₹" + amount + " - 📅 " + date;
         list.appendChild(item);
+        expenseHistory.push({
+    name: name,
+    amount: amount,
+    date: date
+});
+
+localStorage.setItem("expenseHistory", JSON.stringify(expenseHistory));
     }
 
     totalExpense += amount;
@@ -84,6 +93,8 @@ function saveExpense() {
 // ---------------- ROOM EXPENSE ----------------
 
 let totalRoomExpense = Number(localStorage.getItem("totalRoomExpense")) || 0;
+
+let roomExpenseHistory = JSON.parse(localStorage.getItem("roomExpenseHistory")) || [];
 
 function saveRoomExpense() {
 
@@ -102,6 +113,16 @@ function saveRoomExpense() {
         let item = document.createElement("li");
         item.innerHTML = name + " - ₹" + amount + " - 📅 " + date;
         list.appendChild(item);
+        roomExpenseHistory.push({
+    name: name,
+    amount: amount,
+    date: date
+});
+
+localStorage.setItem(
+    "roomExpenseHistory",
+    JSON.stringify(roomExpenseHistory)
+);
     }
 
     totalRoomExpense += amount;
@@ -153,6 +174,8 @@ window.onload = function () {
 
 let totalLoan = Number(localStorage.getItem("totalLoan")) || 0;
 
+let loanHistory = JSON.parse(localStorage.getItem("loanHistory")) || [];
+
 function saveLoan() {
 
     let person = document.getElementById("loanPerson").value;
@@ -169,6 +192,17 @@ function saveLoan() {
     item.innerHTML = person + " - ₹" + amount;
 
     list.appendChild(item);
+
+    loanHistory.push({
+    person: person,
+    amount: amount,
+    date: new Date().toISOString().split("T")[0]
+});
+
+localStorage.setItem(
+    "loanHistory",
+    JSON.stringify(loanHistory)
+);
 
     totalLoan += amount;
 
