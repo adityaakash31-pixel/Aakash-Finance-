@@ -450,13 +450,6 @@ function deleteExpense(button, amount) {
     }
 
     button.parentElement.remove();
-    let liText = button.parentElement.innerText;
-
-expenseHistory = expenseHistory.filter(item => {
-    return !liText.includes(item.name) || !liText.includes("₹" + item.amount);
-});
-
-localStorage.setItem("expenseHistory", JSON.stringify(expenseHistory));
 
     totalExpense = totalExpense - Number(amount);
 
@@ -464,6 +457,18 @@ localStorage.setItem("expenseHistory", JSON.stringify(expenseHistory));
 
     if (document.getElementById("totalExpense")) {
         document.getElementById("totalExpense").innerText = totalExpense;
+    }
+
+    if (document.getElementById("dashboardExpense")) {
+
+        document.getElementById("dashboardExpense").innerText = totalExpense;
+
+        let income = Number(localStorage.getItem("totalIncome")) || 0;
+        let roomExpense = Number(localStorage.getItem("totalRoomExpense")) || 0;
+        let loan = Number(localStorage.getItem("totalLoan")) || 0;
+
+        document.getElementById("dashboardBalance").innerText =
+            income - totalExpense - roomExpense - loan;
     }
 
 }
