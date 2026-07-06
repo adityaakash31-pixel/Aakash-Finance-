@@ -113,7 +113,9 @@ function saveRoomExpense() {
 
     if (list) {
         let item = document.createElement("li");
-        item.innerHTML = name + " - ₹" + amount + " - 📅 " + date;
+        item.innerHTML =
+name + " - ₹" + amount + " - 📅 " + date +
+' <button onclick="deleteRoomExpense(this,' + amount + ')">🗑 Delete</button>';
         list.appendChild(item);
         roomExpenseHistory.push({
     name: name,
@@ -469,6 +471,23 @@ function deleteExpense(button, amount) {
 
         document.getElementById("dashboardBalance").innerText =
             income - totalExpense - roomExpense - loan;
+    }
+
+}
+function deleteRoomExpense(button, amount) {
+
+    if (!confirm("Delete this room expense?")) {
+        return;
+    }
+
+    button.parentElement.remove();
+
+    totalRoomExpense -= Number(amount);
+
+    localStorage.setItem("totalRoomExpense", totalRoomExpense);
+
+    if (document.getElementById("totalRoomExpense")) {
+        document.getElementById("totalRoomExpense").innerText = totalRoomExpense;
     }
 
 }
