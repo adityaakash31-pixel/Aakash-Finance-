@@ -193,7 +193,9 @@ function saveLoan() {
     let list = document.getElementById("loanList");
 
     let item = document.createElement("li");
-    item.innerHTML = person + " - ₹" + amount;
+    item.innerHTML =
+person + " - ₹" + amount +
+' <button onclick="deleteLoan(this,' + amount + ')">🗑 Delete</button>';
 
     list.appendChild(item);
 
@@ -488,6 +490,35 @@ function deleteRoomExpense(button, amount) {
 
     if (document.getElementById("totalRoomExpense")) {
         document.getElementById("totalRoomExpense").innerText = totalRoomExpense;
+    }
+
+}
+function deleteLoan(button, amount) {
+
+    if (!confirm("Delete this loan?")) {
+        return;
+    }
+
+    button.parentElement.remove();
+
+    totalLoan -= Number(amount);
+
+    localStorage.setItem("totalLoan", totalLoan);
+
+    if (document.getElementById("totalLoan")) {
+        document.getElementById("totalLoan").innerText = totalLoan;
+    }
+
+    if (document.getElementById("dashboardLoan")) {
+
+        document.getElementById("dashboardLoan").innerText = totalLoan;
+
+        let income = Number(localStorage.getItem("totalIncome")) || 0;
+        let expense = Number(localStorage.getItem("totalExpense")) || 0;
+        let roomExpense = Number(localStorage.getItem("totalRoomExpense")) || 0;
+
+        document.getElementById("dashboardBalance").innerText =
+            income - expense - roomExpense - totalLoan;
     }
 
 }
