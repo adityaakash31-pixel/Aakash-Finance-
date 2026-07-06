@@ -545,3 +545,45 @@ function resetData() {
 
     window.location.href = "dashboard.html";
 }
+function importData() {
+
+    let file = document.getElementById("importFile").files[0];
+
+    if (!file) {
+        alert("Please select a backup file.");
+        return;
+    }
+
+    let reader = new FileReader();
+
+    reader.onload = function(e) {
+
+        try {
+
+            let data = JSON.parse(e.target.result);
+
+            if (data.income !== null)
+                localStorage.setItem("totalIncome", data.income);
+
+            if (data.expense !== null)
+                localStorage.setItem("totalExpense", data.expense);
+
+            if (data.roomExpense !== null)
+                localStorage.setItem("totalRoomExpense", data.roomExpense);
+
+            if (data.loan !== null)
+                localStorage.setItem("totalLoan", data.loan);
+
+            alert("✅ Backup Imported Successfully!");
+
+            window.location.href = "dashboard.html";
+
+        } catch (err) {
+            alert("❌ Invalid Backup File!");
+        }
+
+    };
+
+    reader.readAsText(file);
+
+}
