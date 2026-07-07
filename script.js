@@ -35,6 +35,20 @@ amount: amount,
 note: note,
 date: date
 });
+        if(source==""){
+    alert("Income Category Select kijiye");
+    return;
+}
+
+if(amount<=0){
+    alert("Amount Enter kijiye");
+    return;
+}
+
+if(date==""){
+    alert("Date Select kijiye");
+    return;
+}
 
 localStorage.setItem("incomeHistory", JSON.stringify(incomeHistory));
     }
