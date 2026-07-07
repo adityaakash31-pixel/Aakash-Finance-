@@ -7,8 +7,9 @@ let incomeHistory = JSON.parse(localStorage.getItem("incomeHistory")) || [];
 function saveIncome() {
 
     let source = document.getElementById("source").value;
-    let amount = Number(document.getElementById("amount").value);
-    let date = document.getElementById("incomeDate").value;
+let amount = Number(document.getElementById("amount").value);
+let note = document.getElementById("incomeNote").value;
+let date = document.getElementById("incomeDate").value;
 
     if (source === "" || amount <= 0) {
         alert("Please fill all fields");
@@ -45,7 +46,9 @@ localStorage.setItem("incomeHistory", JSON.stringify(incomeHistory));
     document.getElementById("totalIncome").innerText = totalIncome;
 
     document.getElementById("source").value = "";
-    document.getElementById("amount").value = "";
+document.getElementById("amount").value = "";
+document.getElementById("incomeNote").value = "";
+document.getElementById("incomeDate").value = "";
 }
 
 
