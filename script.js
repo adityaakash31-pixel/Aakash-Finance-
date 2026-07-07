@@ -23,7 +23,7 @@ let date = document.getElementById("incomeDate").value;
         let item = document.createElement("li");
     item.innerHTML =
 incomeId + " | " +
-source + " - ₹" + amount + " - 📅 " + date +
+source + " - ₹" + amount + "<br>📝 " + note + "<br>📅 " + date +
 ' <button onclick="deleteIncome(this,' + amount + ')">🗑 Delete</button>' +
 ' <button onclick="editIncome(this)">✏️ Edit</button>';
         list.appendChild(item);
