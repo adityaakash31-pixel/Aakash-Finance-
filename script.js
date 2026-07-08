@@ -7,64 +7,65 @@ let incomeHistory = JSON.parse(localStorage.getItem("incomeHistory")) || [];
 function saveIncome() {
 
     let source = document.getElementById("source").value;
-let amount = Number(document.getElementById("amount").value);
-let note = document.getElementById("incomeNote").value;
-let date = document.getElementById("incomeDate").value;
+    let amount = Number(document.getElementById("amount").value);
+    let note = document.getElementById("incomeNote").value;
+    let date = document.getElementById("incomeDate").value;
 
-    if (source === "" || amount <= 0) {
-        alert("Please fill all fields");
+    if (source == "") {
+        alert("Income Category Select kijiye");
         return;
     }
+
+    if (amount <= 0) {
+        alert("Amount Enter kijiye");
+        return;
+    }
+
+    if (date == "") {
+        alert("Date Select kijiye");
+        return;
+    }
+
+    let incomeId = "INC" + Date.now();
+
+    incomeHistory.push({
+        id: incomeId,
+        source: source,
+        amount: amount,
+        note: note,
+        date: date
+    });
+
+    localStorage.setItem("incomeHistory", JSON.stringify(incomeHistory));
 
     let list = document.getElementById("incomeList");
 
     if (list) {
-       let incomeId = "INC" + Date.now();
         let item = document.createElement("li");
-    item.innerHTML =
-incomeId + " | " +
-source + " - ₹" + amount + "<br>📝 " + note + "<br>📅 " + date +
-' <button onclick="deleteIncome(this,' + amount + ')">🗑 Delete</button>' +
-' <button onclick="editIncome(this)">✏️ Edit</button>';
+        item.innerHTML =
+            incomeId + " | " +
+            source + " - ₹" + amount +
+            "<br>📝 " + note +
+            "<br>📅 " + date +
+            ' <button onclick="deleteIncome(this,' + amount + ')">🗑 Delete</button>' +
+            ' <button onclick="editIncome(this)">✏️ Edit</button>';
+
         list.appendChild(item);
-        if(source==""){
-    alert("Income Category Select kijiye");
-    return;
-}
-
-if(amount<=0){
-    alert("Amount Enter kijiye");
-    return;
-}
-
-if(date==""){
-    alert("Date Select kijiye");
-    return;
-}
-
-incomeHistory.push({
-    id: incomeId,
-    source: source,
-    amount: amount,
-    note: note,
-    date: date
-});
-
-localStorage.setItem("incomeHistory", JSON.stringify(incomeHistory));
     }
 
     totalIncome += amount;
 
     localStorage.setItem("totalIncome", totalIncome);
 
-    document.getElementById("totalIncome").innerText = totalIncome;
+    if (document.getElementById("totalIncome")) {
+        document.getElementById("totalIncome").innerText = totalIncome;
+    }
 
     document.getElementById("source").value = "";
-document.getElementById("amount").value = "";
-document.getElementById("incomeNote").value = "";
-document.getElementById("incomeDate").value = "";
+    document.getElementById("amount").value = "";
+    document.getElementById("incomeNote").value = "";
+    document.getElementById("incomeDate").value = "";
 }
-
 
 // ---------------- EXPENSE ----------------
 
@@ -78,38 +79,53 @@ function saveExpense() {
     let amount = Number(document.getElementById("expenseAmount").value);
     let date = document.getElementById("expenseDate").value;
 
-    if (name === "" || amount <= 0) {
-        alert("Please fill all fields");
+    if (name == "") {
+        alert("Expense Name Enter kijiye");
         return;
     }
+
+    if (amount <= 0) {
+        alert("Amount Enter kijiye");
+        return;
+    }
+
+    if (date == "") {
+        alert("Date Select kijiye");
+        return;
+    }
+
+    expenseHistory.push({
+        name: name,
+        amount: amount,
+        date: date
+    });
+
+    localStorage.setItem("expenseHistory", JSON.stringify(expenseHistory));
 
     let list = document.getElementById("expenseList");
 
     if (list) {
         let item = document.createElement("li");
-        item.innerHTML =
-name + " - ₹" + amount + " - 📅 " + date +
-' <button onclick="deleteExpense(this,' + amount + ')">🗑 Delete</button>';
-        list.appendChild(item);
-        expenseHistory.push({
-    name: name,
-    amount: amount,
-    date: date
-});
 
-localStorage.setItem("expenseHistory", JSON.stringify(expenseHistory));
+        item.innerHTML =
+            name + " - ₹" + amount + " - 📅 " + date +
+            ' <button onclick="deleteExpense(this,' + amount + ')">🗑 Delete</button>';
+
+        list.appendChild(item);
     }
 
     totalExpense += amount;
 
     localStorage.setItem("totalExpense", totalExpense);
 
-    document.getElementById("totalExpense").innerText = totalExpense;
+    if (document.getElementById("totalExpense")) {
+        document.getElementById("totalExpense").innerText = totalExpense;
+    }
 
     document.getElementById("expenseName").value = "";
     document.getElementById("expenseAmount").value = "";
+    document.getElementById("expenseDate").value = "";
 }
-
 
 // ---------------- ROOM EXPENSE ----------------
 
@@ -123,39 +139,55 @@ function saveRoomExpense() {
     let amount = Number(document.getElementById("roomAmount").value);
     let date = document.getElementById("roomDate").value;
 
-    if (name === "" || amount <= 0) {
-        alert("Please fill all fields");
+    if (name == "") {
+        alert("Room Expense Name Enter kijiye");
         return;
     }
+
+    if (amount <= 0) {
+        alert("Amount Enter kijiye");
+        return;
+    }
+
+    if (date == "") {
+        alert("Date Select kijiye");
+        return;
+    }
+
+    roomExpenseHistory.push({
+        name: name,
+        amount: amount,
+        date: date
+    });
+
+    localStorage.setItem(
+        "roomExpenseHistory",
+        JSON.stringify(roomExpenseHistory)
+    );
 
     let list = document.getElementById("roomExpenseList");
 
     if (list) {
         let item = document.createElement("li");
-        item.innerHTML =
-name + " - ₹" + amount + " - 📅 " + date +
-' <button onclick="deleteRoomExpense(this,' + amount + ')">🗑 Delete</button>';
-        list.appendChild(item);
-        roomExpenseHistory.push({
-    name: name,
-    amount: amount,
-    date: date
-});
 
-localStorage.setItem(
-    "roomExpenseHistory",
-    JSON.stringify(roomExpenseHistory)
-);
+        item.innerHTML =
+            name + " - ₹" + amount + " - 📅 " + date +
+            ' <button onclick="deleteRoomExpense(this,' + amount + ')">🗑 Delete</button>';
+
+        list.appendChild(item);
     }
 
     totalRoomExpense += amount;
 
     localStorage.setItem("totalRoomExpense", totalRoomExpense);
 
-    document.getElementById("totalRoomExpense").innerText = totalRoomExpense;
+    if (document.getElementById("totalRoomExpense")) {
+        document.getElementById("totalRoomExpense").innerText = totalRoomExpense;
+    }
 
     document.getElementById("roomName").value = "";
     document.getElementById("roomAmount").value = "";
+    document.getElementById("roomDate").value = "";
 }
 
 
@@ -163,42 +195,58 @@ localStorage.setItem(
 
 window.onload = function () {
 
+    // Dark Mode
     if (localStorage.getItem("theme") === "dark") {
-    document.body.classList.add("dark");
+        document.body.classList.add("dark");
     }
 
-    if (document.getElementById("dashboardIncome") != null) {
+    // LocalStorage से Data पढ़ें
+    let income = Number(localStorage.getItem("totalIncome")) || 0;
+    let expense = Number(localStorage.getItem("totalExpense")) || 0;
+    let roomExpense = Number(localStorage.getItem("totalRoomExpense")) || 0;
+    let loan = Number(localStorage.getItem("totalLoan")) || 0;
 
-        let income = Number(localStorage.getItem("totalIncome")) || 0;
-        let expense = Number(localStorage.getItem("totalExpense")) || 0;
-        let roomExpense = Number(localStorage.getItem("totalRoomExpense")) || 0;
-        let loan = Number(localStorage.getItem("totalLoan")) || 0;
-
+    // Dashboard
+    if (document.getElementById("dashboardIncome")) {
         document.getElementById("dashboardIncome").innerText = income;
+    }
+
+    if (document.getElementById("dashboardExpense")) {
         document.getElementById("dashboardExpense").innerText = expense;
+    }
+
+    if (document.getElementById("dashboardRoomExpense")) {
         document.getElementById("dashboardRoomExpense").innerText = roomExpense;
-        if (document.getElementById("dashboardLoan")) {
-    document.getElementById("dashboardLoan").innerText = loan;
-        }
+    }
+
+    if (document.getElementById("dashboardLoan")) {
+        document.getElementById("dashboardLoan").innerText = loan;
+    }
+
+    if (document.getElementById("dashboardBalance")) {
         document.getElementById("dashboardBalance").innerText =
-    income - expense - roomExpense - loan;
+            income - expense - roomExpense - loan;
     }
 
+    // Income Page
     if (document.getElementById("totalIncome")) {
-        document.getElementById("totalIncome").innerText = totalIncome;
+        document.getElementById("totalIncome").innerText = income;
     }
 
+    // Expense Page
     if (document.getElementById("totalExpense")) {
-        document.getElementById("totalExpense").innerText = totalExpense;
+        document.getElementById("totalExpense").innerText = expense;
     }
 
+    // Room Expense Page
     if (document.getElementById("totalRoomExpense")) {
-        document.getElementById("totalRoomExpense").innerText = totalRoomExpense;
+        document.getElementById("totalRoomExpense").innerText = roomExpense;
     }
 
+    // Loan Page
     if (document.getElementById("totalLoan")) {
-    document.getElementById("totalLoan").innerText = totalLoan;
-}
+        document.getElementById("totalLoan").innerText = loan;
+    }
 
 };
 
@@ -213,82 +261,52 @@ function saveLoan() {
     let person = document.getElementById("loanPerson").value;
     let amount = Number(document.getElementById("loanAmount").value);
 
-    if (person === "" || amount <= 0) {
-        alert("Please fill all fields");
+    if (person == "") {
+        alert("Person Name Enter kijiye");
         return;
     }
 
-    let list = document.getElementById("loanList");
-
-    let item = document.createElement("li");
-    item.innerHTML =
-person + " - ₹" + amount +
-' <button onclick="deleteLoan(this,' + amount + ')">🗑 Delete</button>';
-
-    list.appendChild(item);
+    if (amount <= 0) {
+        alert("Amount Enter kijiye");
+        return;
+    }
 
     loanHistory.push({
-    person: person,
-    amount: amount,
-    date: new Date().toISOString().split("T")[0]
-});
+        person: person,
+        amount: amount,
+        date: new Date().toISOString().split("T")[0]
+    });
 
-localStorage.setItem(
-    "loanHistory",
-    JSON.stringify(loanHistory)
-);
+    localStorage.setItem("loanHistory", JSON.stringify(loanHistory));
+
+    let list = document.getElementById("loanList");
+
+    if (list) {
+        let item = document.createElement("li");
+
+        item.innerHTML =
+            person + " - ₹" + amount +
+            ' <button onclick="deleteLoan(this,' + amount + ')">🗑 Delete</button>';
+
+        list.appendChild(item);
+    }
 
     totalLoan += amount;
 
     localStorage.setItem("totalLoan", totalLoan);
 
-    document.getElementById("totalLoan").innerText = totalLoan;
+    if (document.getElementById("totalLoan")) {
+        document.getElementById("totalLoan").innerText = totalLoan;
+    }
 
     document.getElementById("loanPerson").value = "";
     document.getElementById("loanAmount").value = "";
 }
-function searchIncome() {
 
-    let input = document.getElementById("searchIncome").value.toLowerCase();
-    let list = document.getElementById("incomeList");
-    let items = list.getElementsByTagName("li");
-
-    for (let i = 0; i < items.length; i++) {
-
-        let text = items[i].innerText.toLowerCase();
-
-        if (text.indexOf(input) > -1) {
-            items[i].style.display = "";
-        } else {
-            items[i].style.display = "none";
-        }
-
-    }
-}
-function exportData() {
-
-    let data = {
-        income: localStorage.getItem("totalIncome"),
-        expense: localStorage.getItem("totalExpense"),
-        roomExpense: localStorage.getItem("totalRoomExpense"),
-        loan: localStorage.getItem("totalLoan")
-    };
-
-    let text = JSON.stringify(data, null, 2);
-
-    let blob = new Blob([text], { type: "application/json" });
-
-    let link = document.createElement("a");
-
-    link.href = URL.createObjectURL(blob);
-
-    link.download = "AakashFinanceBackup.json";
-
-    link.click();
-}
 // ---------------- REPORT ----------------
 
-if (document.getElementById("reportIncome")) {
+if (document.getElementById("reportIncome") &&
+    document.getElementById("financeChart")) {
 
     let income = Number(localStorage.getItem("totalIncome")) || 0;
     let expense = Number(localStorage.getItem("totalExpense")) || 0;
@@ -302,58 +320,17 @@ if (document.getElementById("reportIncome")) {
     document.getElementById("reportBalance").innerText =
         income - expense - roomExpense - loan;
 
-    new Chart(document.getElementById("financeChart"), {
-        type: "pie",
-        data: {
-            labels: ["Income", "Expense", "Room Expense", "Loan"],
-            datasets: [{
-                data: [income, expense, roomExpense, loan]
-            }]
-        }
-    });
-}
-function filterReport() {
-
-    let month = document.getElementById("reportMonth").value;
-
-    if (month === "") {
-        alert("Please select a month");
-        return;
+    if (typeof Chart !== "undefined") {
+        new Chart(document.getElementById("financeChart"), {
+            type: "pie",
+            data: {
+                labels: ["Income", "Expense", "Room Expense", "Loan"],
+                datasets: [{
+                    data: [income, expense, roomExpense, loan]
+                }]
+            }
+        });
     }
-
-    alert("Selected Month: " + month);
-
-}
-function editIncome(button) {
-
-    let li = button.parentElement;
-
-    let newAmount = prompt("Enter new Amount:");
-
-    if (newAmount === null || newAmount === "" || isNaN(newAmount)) {
-        return;
-    }
-
-    let text = li.innerText;
-
-    let parts = text.split(" - ₹");
-
-    let firstPart = parts[0];
-
-    let datePart = "";
-
-    if (parts[1].includes(" - 📅 ")) {
-        datePart = parts[1].split(" - 📅 ")[1];
-    }
-
-    li.innerHTML =
-        firstPart + " - ₹" + newAmount + " - 📅 " + datePart +
-        ' <button onclick="this.parentElement.remove()">🗑 Delete</button>' +
-        ' <button onclick="editIncome(this)">✏️ Edit</button>';
-
-}
-function searchHistory() {
-    alert("History Search feature is under development.");
 }
 
 // ---------------- HISTORY PAGE ----------------
