@@ -167,7 +167,7 @@ window.onload = function () {
     document.body.classList.add("dark");
     }
 
-    if (document.getElementById("dashboardIncome")) {
+    if (document.getElementById("dashboardIncome") != null) {
 
         let income = Number(localStorage.getItem("totalIncome")) || 0;
         let expense = Number(localStorage.getItem("totalExpense")) || 0;
@@ -196,7 +196,12 @@ window.onload = function () {
         document.getElementById("totalRoomExpense").innerText = totalRoomExpense;
     }
 
+    if (document.getElementById("totalLoan")) {
+    document.getElementById("totalLoan").innerText = totalLoan;
+}
+
 };
+
 // ---------------- LOAN ----------------
 
 let totalLoan = Number(localStorage.getItem("totalLoan")) || 0;
