@@ -60,7 +60,7 @@ body{
     margin:0;
     padding:20px;
     font-family:Arial,sans-serif;
-    background:#f4f7fb;
+    background:linear-gradient(135deg,#eef5ff,#dcecff);
 }
 
 h1{
@@ -215,4 +215,29 @@ grid-template-columns:1fr;
 
 }
 
+}
+.big-card{
+    background:white;
+    border-radius:20px;
+    padding:20px;
+    margin:15px 0;
+    box-shadow:0 10px 25px rgba(0,0,0,.12);
+    text-align:center;
+}
+
+.action-card{
+    background:#2563eb;
+    color:white;
+    padding:18px;
+    margin:12px 0;
+    border-radius:15px;
+    text-align:center;
+    font-size:20px;
+    font-weight:bold;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.action-card:hover{
+    transform:scale(1.03);
 }
