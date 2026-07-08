@@ -27,14 +27,6 @@ source + " - ₹" + amount + "<br>📝 " + note + "<br>📅 " + date +
 ' <button onclick="deleteIncome(this,' + amount + ')">🗑 Delete</button>' +
 ' <button onclick="editIncome(this)">✏️ Edit</button>';
         list.appendChild(item);
-        incomeHistory.push({
-    incomeHistory.push({
-id: incomeId,
-source: source,
-amount: amount,
-note: note,
-date: date
-});
         if(source==""){
     alert("Income Category Select kijiye");
     return;
@@ -49,6 +41,14 @@ if(date==""){
     alert("Date Select kijiye");
     return;
 }
+
+incomeHistory.push({
+    id: incomeId,
+    source: source,
+    amount: amount,
+    note: note,
+    date: date
+});
 
 localStorage.setItem("incomeHistory", JSON.stringify(incomeHistory));
     }
@@ -69,12 +69,6 @@ document.getElementById("incomeDate").value = "";
 // ---------------- EXPENSE ----------------
 
 let totalExpense = Number(localStorage.getItem("totalExpense")) || 0;
-
-<label>Date</label>
-
-<input
-id="incomeDate"
-type="date">
     
 let expenseHistory = JSON.parse(localStorage.getItem("expenseHistory")) || [];
 
