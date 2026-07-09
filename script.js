@@ -37,12 +37,14 @@ window.onload = function () {
 
         list.innerHTML = "";
 
-        incomeHistory.forEach(function(item){
+        incomeHistory.forEach(function(item,index){
 
             let li = document.createElement("li");
 
             li.innerHTML =
-            item.source + " - ₹" + item.amount;
+item.source + " - ₹" + item.amount +
+' <button onclick="editIncome('+index+')">✏️</button> ' +
+' <button onclick="deleteIncome('+index+')">🗑</button>';
 
             list.appendChild(li);
 
