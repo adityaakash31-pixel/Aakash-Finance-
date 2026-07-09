@@ -633,3 +633,6 @@ function downloadPDF() {
     doc.save("AakashFinanceReport.pdf");
 
 }
+window.onerror = function(message, source, line){
+    alert("ERROR: " + message + " | Line: " + line);
+};
