@@ -4,10 +4,16 @@ let totalIncome = Number(localStorage.getItem("totalIncome")) || 0;
 
 window.onload = function () {
 
-    let incomeBox = document.getElementById("totalIncome");
+    let income = Number(localStorage.getItem("totalIncome")) || 0;
 
-    if (incomeBox) {
-        incomeBox.innerText = totalIncome;
+    let totalIncome = document.getElementById("totalIncome");
+    if (totalIncome) {
+        totalIncome.innerText = income;
+    }
+
+    let dashboardIncome = document.getElementById("dashboardIncome");
+    if (dashboardIncome) {
+        dashboardIncome.innerText = income;
     }
 
 };
