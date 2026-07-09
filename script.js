@@ -1,8 +1,27 @@
+let incomeHistory =
+JSON.parse(localStorage.getItem("incomeHistory")) || [];
+
 // Aakash Finance V4
 
 let totalIncome = Number(localStorage.getItem("totalIncome")) || 0;
 
 window.onload = function () {
+    let list = document.getElementById("incomeList");
+
+if (list) {
+
+    incomeHistory.forEach(function(data){
+
+        let item = document.createElement("li");
+
+        item.innerHTML =
+        data.source + " - ₹" + data.amount;
+
+        list.appendChild(item);
+
+    });
+
+}
 
     let income = Number(localStorage.getItem("totalIncome")) || 0;
 
@@ -46,6 +65,15 @@ if (list) {
         source + " - ₹" + amount;
 
     list.appendChild(item);
+    incomeHistory.push({
+    source: source,
+    amount: amount
+});
+
+localStorage.setItem(
+    "incomeHistory",
+    JSON.stringify(incomeHistory)
+);
 
 }
 
