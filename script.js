@@ -64,6 +64,7 @@ if (list) {
     item.innerHTML =
 data.source + " - ₹" + data.amount +
 ' <button onclick="deleteIncome(this,' + data.amount + ')">🗑 Delete</button>';
+    ' <button onclick="editIncome(this)">✏️ Edit</button>';
 
     list.appendChild(item);
     incomeHistory.push({
@@ -103,4 +104,16 @@ function deleteIncome(button, amount) {
         totalBox.innerText = totalIncome;
     }
 
+}
+function editIncome(button){
+
+    let li = button.parentElement;
+
+    let newText = prompt("Enter New Income");
+
+    if(newText == null || newText == ""){
+        return;
+    }
+
+    li.firstChild.textContent = newText + " ";
 }
