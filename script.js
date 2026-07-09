@@ -36,6 +36,18 @@ function saveIncome() {
     totalIncome += amount;
 
     localStorage.setItem("totalIncome", totalIncome);
+    let list = document.getElementById("incomeList");
+
+if (list) {
+
+    let item = document.createElement("li");
+
+    item.innerHTML =
+        source + " - ₹" + amount;
+
+    list.appendChild(item);
+
+}
 
     document.getElementById("totalIncome").innerText = totalIncome;
 
