@@ -62,7 +62,8 @@ if (list) {
     let item = document.createElement("li");
 
     item.innerHTML =
-        source + " - ₹" + amount;
+data.source + " - ₹" + data.amount +
+' <button onclick="deleteIncome(this,' + data.amount + ')">🗑 Delete</button>';
 
     list.appendChild(item);
     incomeHistory.push({
@@ -83,5 +84,23 @@ localStorage.setItem(
 
     document.getElementById("source").value = "";
     document.getElementById("amount").value = "";
+
+}
+function deleteIncome(button, amount) {
+
+    if (!confirm("Delete this income?")) return;
+
+    let item = button.parentElement;
+
+    item.remove();
+
+    totalIncome -= amount;
+
+    localStorage.setItem("totalIncome", totalIncome);
+
+    let totalBox = document.getElementById("totalIncome");
+    if (totalBox) {
+        totalBox.innerText = totalIncome;
+    }
 
 }
