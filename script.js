@@ -114,3 +114,86 @@ function saveIncome() {
     alert("✅ Income Saved Successfully");
 
 }
+// ===============================
+// DELETE INCOME
+// ===============================
+
+function deleteIncome(index){
+
+    if(!confirm("Delete this income?")){
+        return;
+    }
+
+    totalIncome -= incomeHistory[index].amount;
+
+    localStorage.setItem("totalIncome", totalIncome);
+
+    incomeHistory.splice(index,1);
+
+    localStorage.setItem(
+        "incomeHistory",
+        JSON.stringify(incomeHistory)
+    );
+
+    location.reload();
+
+}
+
+// ===============================
+// EDIT INCOME
+// ===============================
+
+function editIncome(index){
+
+    let newAmount = prompt(
+        "Enter New Amount",
+        incomeHistory[index].amount
+    );
+
+    if(newAmount==null){
+        return;
+    }
+
+    newAmount = Number(newAmount);
+
+    if(newAmount<=0){
+        return;
+    }
+
+    totalIncome =
+        totalIncome
+        - incomeHistory[index].amount
+        + newAmount;
+
+    incomeHistory[index].amount = newAmount;
+
+    localStorage.setItem(
+        "incomeHistory",
+        JSON.stringify(incomeHistory)
+    );
+
+    localStorage.setItem(
+        "totalIncome",
+        totalIncome
+    );
+
+    location.reload();
+
+}
+
+// ===============================
+// SEARCH
+// ===============================
+
+function searchIncome(){
+
+    let input =
+    document.getElementById("searchIncome").value.toLowerCase();
+
+    let list =
+    document.getElementById("incomeList");
+
+    let items =
+    list.getElementsByTagName("li");
+
+    for(let i
