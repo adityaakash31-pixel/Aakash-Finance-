@@ -175,3 +175,60 @@ function editIncome(index) {
     location.reload();
 
 }
+// ===================================
+// EXPENSE
+// ===================================
+
+let totalExpense = Number(localStorage.getItem("totalExpense")) || 0;
+
+let expenseHistory =
+JSON.parse(localStorage.getItem("expenseHistory")) || [];
+// ===================================
+// SAVE EXPENSE
+// ===================================
+
+function saveExpense() {
+
+    let name = document.getElementById("expenseName").value;
+    let amount = Number(document.getElementById("expenseAmount").value);
+
+    if (name === "") {
+        alert("Expense Name Enter kijiye");
+        return;
+    }
+
+    if (amount <= 0) {
+        alert("Amount Enter kijiye");
+        return;
+    }
+
+    let expense = {
+        name: name,
+        amount: amount
+    };
+
+    expenseHistory.push(expense);
+
+    localStorage.setItem(
+        "expenseHistory",
+        JSON.stringify(expenseHistory)
+    );
+
+    totalExpense += amount;
+
+    localStorage.setItem(
+        "totalExpense",
+        totalExpense
+    );
+
+    let box = document.getElementById("totalExpense");
+
+    if (box) {
+        box.innerText = totalExpense;
+    }
+
+    alert("✅ Expense Saved Successfully");
+
+    document.getElementById("expenseName").value = "";
+    document.getElementById("expenseAmount").value = "";
+}
