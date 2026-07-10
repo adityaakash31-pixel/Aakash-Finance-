@@ -105,7 +105,9 @@ function saveIncome() {
         let li = document.createElement("li");
 
         li.innerHTML =
-            source + " - ₹" + amount;
+source + " - ₹" + amount +
+' <button onclick="editIncome('+(incomeHistory.length-1)+')">✏️</button> ' +
+' <button onclick="deleteIncome('+(incomeHistory.length-1)+')">🗑</button>';
 
         list.appendChild(li);
     }
@@ -199,3 +201,25 @@ function searchIncome(){
     list.getElementsByTagName("li");
 
     for(let i
+function searchIncome(){
+
+    let input =
+    document.getElementById("searchIncome").value.toLowerCase();
+
+    let list =
+    document.getElementById("incomeList");
+
+    let items =
+    list.getElementsByTagName("li");
+
+    for(let i=0;i<items.length;i++){
+
+        if(items[i].innerText.toLowerCase().includes(input)){
+            items[i].style.display="";
+        }else{
+            items[i].style.display="none";
+        }
+
+    }
+
+}
