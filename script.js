@@ -27,3 +27,112 @@ window.onload = function () {
 };
 
 console.log("Aakash Finance V4 Loaded");
+// ===================================
+// SAVE INCOME
+// ===================================
+
+function saveIncome() {
+
+    let source = document.getElementById("source").value;
+    let amount = Number(document.getElementById("amount").value);
+
+    if (source === "") {
+        alert("Income Category Select kijiye");
+        return;
+    }
+
+    if (amount <= 0) {
+        alert("Amount Enter kijiye");
+        return;
+    }
+
+    // Save Data
+    let income = {
+        source: source,
+        amount: amount
+    };
+
+    incomeHistory.push(income);
+
+    localStorage.setItem(
+        "incomeHistory",
+        JSON.stringify(incomeHistory)
+    );
+
+    // Update Total
+    totalIncome += amount;
+
+    localStorage.setItem(
+        "totalIncome",
+        totalIncome
+    );
+
+    // Update Screen
+    let total = document.getElementById("totalIncome");
+
+    if (total) {
+        total.innerText = totalIncome;
+    }
+
+    let list = document.getElementById("incomeList");
+
+if (list) {
+
+    let li = document.createElement("li");
+
+    li.innerHTML =
+item.source + " - ₹" + item.amount +
+' <button onclick="deleteIncome(' + index + ')">🗑 Delete</button>';
+
+    list.appendChild(li);
+
+}
+    alert("✅ Income Saved Successfully");
+
+    // Clear Form
+    document.getElementById("source").value = "";
+    document.getElementById("amount").value = "";
+
+}
+// Income History
+let list = document.getElementById("incomeList");
+
+if (list) {
+
+    list.innerHTML = "";
+
+    incomeHistory.forEach(function(item, index){
+
+        let li = document.createElement("li");
+
+        li.innerHTML =
+        item.source + " - ₹" + item.amount;
+
+        list.appendChild(li);
+
+    });
+
+}
+// ===================================
+// DELETE INCOME
+// ===================================
+
+function deleteIncome(index) {
+
+    if (!confirm("Delete this income?")) {
+        return;
+    }
+
+    totalIncome -= incomeHistory[index].amount;
+
+    incomeHistory.splice(index, 1);
+
+    localStorage.setItem("totalIncome", totalIncome);
+    localStorage.setItem(
+        "incomeHistory",
+        JSON.stringify(incomeHistory)
+    );
+
+    location.reload();
+
+}
