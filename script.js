@@ -16,6 +16,18 @@ window.onload = function () {
     let dashboard = document.getElementById("dashboardIncome");
     if (dashboard) {
         dashboard.innerText = totalIncome;
+        // Expense Total
+let expenseBox = document.getElementById("totalExpense");
+
+if (expenseBox) {
+    expenseBox.innerText = totalExpense;
+}
+
+// Dashboard Expense
+let dashboardExpense = document.getElementById("dashboardExpense");
+
+if (dashboardExpense) {
+    dashboardExpense.innerText = totalExpense;
     }
 
     // Income Page Total
